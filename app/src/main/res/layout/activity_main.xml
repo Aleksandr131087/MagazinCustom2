@@ -15,7 +15,7 @@
         android:gravity="center"
         android:text="Магазин продуктов"
         android:textSize="48dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

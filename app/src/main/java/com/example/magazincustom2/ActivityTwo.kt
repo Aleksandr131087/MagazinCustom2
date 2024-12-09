@@ -59,15 +59,13 @@ saveBTN.setOnClickListener {
     val productimage = bitmap
     val product = Product(productName, productPrice, productimage)
     products.add(product)
+    val ListAdapter = ListAdapter(this@ActivityTwo, products)
+    listViewLW.adapter = ListAdapter
+    ListAdapter.notifyDataSetChanged()
+    productNameET.text.clear()
+    productPriceET.text.clear()
+    editImageIV.setImageResource(R.drawable.ic_launcher_foreground)
 }
-
-        val ListAdapter = ListAdapter(this@ActivityTwo, products)
-        listViewLW.adapter = ListAdapter
-        ListAdapter.notifyDataSetChanged()
-        productNameET.text.clear()
-        productPriceET.text.clear()
-        editImageIV.setImageResource(R.drawable.ic_launcher_foreground)
-
     }
 
 
@@ -77,15 +75,14 @@ saveBTN.setOnClickListener {
         data: Intent?,
     ) {
         super.onActivityResult(requestCode, resultCode, data)
-        editImageIV = findViewById(R.id.imageViewIV)
         when (requestCode) {
             GALERRY_REQUEST -> if (resultCode == RESULT_OK) {
                 val selectedImage: Uri? = data?.data
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImage)
+                    editImageIV.setImageBitmap(bitmap)
                 } catch (e: IOException) {
                     e.printStackTrace()
-                    editImageIV.setImageBitmap(bitmap)
 
                 }
             }
