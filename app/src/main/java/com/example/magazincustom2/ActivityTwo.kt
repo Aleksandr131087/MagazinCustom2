@@ -59,15 +59,13 @@ saveBTN.setOnClickListener {
     val productimage = bitmap
     val product = Product(productName, productPrice, productimage)
     products.add(product)
+    val ListAdapter = ListAdapter(this@ActivityTwo, products)
+    listViewLW.adapter = ListAdapter
+    ListAdapter.notifyDataSetChanged()
+    productNameET.text.clear()
+    productPriceET.text.clear()
+    editImageIV.setImageResource(R.drawable.ic_launcher_foreground)
 }
-
-        val ListAdapter = ListAdapter(this@ActivityTwo, products)
-        listViewLW.adapter = ListAdapter
-        ListAdapter.notifyDataSetChanged()
-        productNameET.text.clear()
-        productPriceET.text.clear()
-        editImageIV.setImageResource(R.drawable.ic_launcher_foreground)
-
     }
 
 
